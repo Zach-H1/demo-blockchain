@@ -62,10 +62,6 @@ public class ChainImpl {
             BlockImpl prev = blockchain.get(i-1);
             BlockImpl curr = blockchain.get(i);
 
-            System.out.println(currentHashIsNotRegistered(curr));
-            System.out.println(previousHashIsNotRegistered(curr, prev));
-            System.out.println(hashIsInvalid(curr.getCalculatedHash(), hashTarget));
-
             if(currentHashIsNotRegistered(curr) ||
                     previousHashIsNotRegistered(curr, prev) ||
                     hashIsInvalid(curr.getCalculatedHash(), hashTarget)) {
@@ -76,14 +72,13 @@ public class ChainImpl {
     }
 
     private static boolean hashIsInvalid(String hash, String target){
-        return compareHashes(hash.substring(0, difficulty), target);
+        return !compareHashes(hash.substring(0, difficulty), target);
     }
 
     /*
      * Checks current registered previous hash to the current blocks hash
      */
     private static boolean previousHashIsNotRegistered(BlockImpl current, BlockImpl previous){
-        System.out.println(current.getCalculatedHash()+"-------"+current.getPreviousHash());
         return !compareHashes(previous.getCalculatedHash(), current.getPreviousHash());
     }
 
@@ -91,7 +86,6 @@ public class ChainImpl {
      * Compares current hash to registered hash
      */
     private static boolean currentHashIsNotRegistered(BlockImpl current){
-        System.out.println(current.getCalculatedHash()+"-------"+current.getRegisteredHash());
         return !compareHashes(current.getCalculatedHash(), current.getRegisteredHash());
     }
 

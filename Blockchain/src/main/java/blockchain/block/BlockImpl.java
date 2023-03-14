@@ -27,7 +27,7 @@ public class BlockImpl implements Block {
             this.nonce++;
             this.hash = getRegisteredHash();
         }
-        System.out.println("blockchain.blockchain.Block is mined: "+this.hash);
+        System.out.println("Block is mined: "+this.hash);
     }
 
     @Override
