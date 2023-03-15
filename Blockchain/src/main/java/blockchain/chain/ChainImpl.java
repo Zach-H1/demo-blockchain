@@ -36,6 +36,7 @@ public class ChainImpl {
         System.out.println(blockchainJson);
 
 
+        // TODO Create the wallets with bouncy castle security provider
 //        //Setup Bouncy castle as a Security Provider
 //        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 //        //Create the new wallets

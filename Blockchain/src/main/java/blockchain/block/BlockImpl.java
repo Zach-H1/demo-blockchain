@@ -9,6 +9,8 @@ public class BlockImpl implements Block {
     String previousHash; /* Hashcode for the previous block */
     private String data; /* Data stored in this block */
     private long timestamp; /* Timestamp of the block at point of initialization */
+
+    // TODO create wallets
     private int nonce; /* Stands for "number once", an arbitrary number that is used once in a cryptographic communication,
                           should be random to mitigate replay attacks */
 
@@ -23,6 +25,7 @@ public class BlockImpl implements Block {
     public void mineBlock(int difficulty){
         String target = new String(new char[difficulty]).replace('\0', '0');
         while(!hash.substring(0, difficulty).equals(target)){
+            // TODO create wallets
 //            this.nonce = blockchain.Util.generateNonce();
             this.nonce++;
             this.hash = getRegisteredHash();
